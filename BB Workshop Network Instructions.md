@@ -4,7 +4,7 @@ Please follow these instructions to setup your Romi prior to attending the Works
 ## **Recommended Software**
 Here is a list of recommended software to install.
 1. [FRC 2021 VS Code](https://github.com/wpilibsuite/allwpilib/releases/tag/v2021.3.1) for robot code (instructions for installation can be found [here](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html))
-2. [Romi image] Download from [here](https://dev.azure.com/wpilib/RuntimeSupport/_build/results?buildId=17296&view=artifacts&pathAsName=false&type=publishedArtifacts) and extract it you will use the file *WPILibPi_image-v2021.3.1-3-g7bd028a_2021-10-01-Romi.zip*.
+2. [Romi image](https://dev.azure.com/wpilib/RuntimeSupport/_build/results?buildId=17296&view=artifacts&pathAsName=false&type=publishedArtifacts) Download and extract it. You will use the file *WPILibPi_image-v2021.3.1-3-g7bd028a_2021-10-01-Romi.zip*.
 2. [Etcher](https://www.balena.io/etcher/) if you need to image your Pi, use image above and instructions for installing [here](https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/installing-the-image-to-your-microsd-card.html)
 3. [Angry IP Scanner](https://angryip.org/) for identifying IP address of Romi
 4. [Bonjour](https://support.apple.com/kb/dl999?locale=en_US) for resolving Romi hostname of wpilibpi (necessary on Windows) 
