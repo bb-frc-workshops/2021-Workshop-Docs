@@ -7,29 +7,34 @@ Here is a list of recommended software to install.
 2. [Romi image](https://dev.azure.com/wpilib/RuntimeSupport/_build/results?buildId=17296&view=artifacts&pathAsName=false&type=publishedArtifacts) Download and extract it. You will use the file *WPILibPi_image-v2021.3.1-3-g7bd028a_2021-10-01-Romi.zip*.
 2. [Etcher](https://www.balena.io/etcher/) if you need to image your Pi, use image above and instructions for installing [here](https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/installing-the-image-to-your-microsd-card.html)
 3. [Angry IP Scanner](https://angryip.org/) for identifying IP address of Romi
-4. [Bonjour](https://support.apple.com/kb/dl999?locale=en_US) for resolving Romi hostname of wpilibpi (necessary on Windows) 
+4. Optional - [Bonjour](https://support.apple.com/kb/dl999?locale=en_US) for resolving Romi hostname of wpilibpi
+
+
+## **Pre-requisite - Fully Charged Batteries!** 
+The Romi robot drains batteries incredibly fast. Please ensure you have fully charged batteries as well as 6 additional AA batteries for back up. It takes a long time to recharge batteries and the last thing you want to be stuck with is a dead robot.
 
 ## **Step 1: Imaging**
 1. Start with the official [Romi instructions](https://docs.wpilib.org/en/stable/docs/romi-robot/imaging-romi.html)
-2. Note that the Romi micro USB port should be connected to a Raspberry Pi USB port before powering on
+    1. Note that the Romi micro USB port should be connected to a Raspberry Pi USB port before powering on.
+    2. A good indication of when the Pi will be ready to connect via Access Point is when the green light on the Pi stops flashing.
 3. When you get to **Wireless Network Setup**, if can't connect to [http://wpilibpi](http://wpilibpi) but can to IP address directly, your computer is struggling to resolve the hostname from mDNS. Try downloading and installing [Bonjour](https://support.apple.com/kb/dl999?locale=en_US)
 4. Setup Pi Network settings
     1. Set Pi in update mode by clicking on the "Writable" on top of the web page.
     2. Navigate to "Network Settings" in the left navigation panel.
-    3. "Wifi Mode" to Bridge
-    4. "Wifi Address" to DHCP
-    5. "SSID" to your local network name
-    6. "WPA2 Passhrase" to the network password
+    3. Set "Wifi Mode" to Bridge
+    4. Set "Wifi Address" to DHCP
+    5. Set "SSID" to your local network name
+    6. Set "WPA2 Passhrase" to the network password
     7. Click "Save" (just once). You connection will drop from the Pi.
    
    ![image](./PiUIBridgeModeNumbered.png)
 
-5. Wait 15 seconds
+5. Wait 15 seconds (web page should grey)
 6. Restart PI
 7. Connect your computer to the local network if you have not done so already.
 8. Open Angry IP Scanner
     1. Range should default to local network. Click Start.
-	2. Once scan is complete, search for "wpilibpi.local" in hostname. It can take a minute or 2 for the Pi to fully boot, so if it doesn't show initially, try rescanning.
+	2. Once scan is complete, search for "wpilibpi.xxxx" in hostname. It can take a minute or 2 for the Pi to fully boot, so if it doesn't show initially, try rescanning.
 	3. Note IP address
     
     ![image](./Angry%20IP%20Scanner%20Numbered.png)
@@ -56,12 +61,21 @@ network={
 
 ## **Step 3: Test from VS Code**
 1. Starting from the [Romi programming instructions](https://docs.wpilib.org/en/stable/docs/romi-robot/programming-romi.html)
-2. In *build.gradle* file, update HALSIMWS_HOST to IP Address from Angry IP Scanner
+2. In *build.gradle* file, update HALSIMWS_HOST from 10.0.0.2 to IP Address from Angry IP Scanner:
+
+```
+// Set the websocket remote host (the Romi IP address).
+sim {
+    envVar "HALSIMWS_HOST", "10.0.0.2" // <-- Change IP Address to that found in Angry IP Scanner
+}
+```
+
 3. Or, if able to resolve [http://wpilibpi](http://wpilibpi), replace code for websocket to be:
 
-```def ROMI_IP 
+```
+def ROMI_IP 
 try {
-    ROMI_IP = java.net.InetAddress.getByName("wpilibpi.local").getHostAddress()
+    ROMI_IP = java.net.InetAddress.getByName("wpilibpi.local").getHostAddress() // <-- You may need to change the name here to the hostname you see in Angry IP Scanner
 } catch (UnknownHostException e) {
     ROMI_IP = "10.0.0.2"
 }
@@ -71,7 +85,13 @@ sim {
   envVar "HALSIMWS_HOST", ROMI_IP
 }
 ```
-4. Build and run code.
+4. Leverage the simulator GUI to test out interactions with the robot
+    1. Detailed instructions for the simulator GUI can be found [here](https://docs.wpilib.org/en/latest/docs/software/wpilib-tools/robot-simulation/simulation-gui.html)
+    2. Build and run code with "WPILib Simulate Robot Code on Desktop" command palette option in VS Code. (see step "Running the GUI" in the link specified above)
+    3. A simulator GUI should start up automatically (there will not be a pick extensions step for the Romi)
+    4. Drag-n-drop your Joystick from "System Joystick" to Joysticks (port [0]) (see step "Adding a System Joystick to Joysticks" in link specified above)
+    5. Switch the "Robot State" from "Disabled" to "Teleoperated"
+    6. It's okay if it drives differently. Romireference was designed for the Logitech gamepad. If you are not using the same controller, the mapping of the buttons (found in *Constants.java*) will not match. This can be corrected in the workshop.
 
 ## **Step 4: Attend Workshop**
-If you wree able to coneect to the Romi you are in great shape. If you got Step 3 working such that you can actually interact with the robot, you are ahead of the game!
+If you were able to coneect to the Romi you are in great shape. If you got Step 3 working such that you can actually interact with the robot, you are ahead of the game!
