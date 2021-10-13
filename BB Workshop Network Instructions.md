@@ -17,7 +17,7 @@ The Romi robot drains batteries incredibly fast. Please ensure you have fully ch
 1. Start with the official [Romi instructions](https://docs.wpilib.org/en/stable/docs/romi-robot/imaging-romi.html)
     1. Note that the Romi micro USB port should be connected to a Raspberry Pi USB port before powering on.
     2. A good indication of when the Pi will be ready to connect via Access Point is when the green light on the Pi stops flashing.
-3. When you get to **Wireless Network Setup**, if can't connect to [http://wpilibpi](http://wpilibpi) but can to IP address directly, your computer is struggling to resolve the hostname from mDNS. Try downloading and installing [Bonjour](https://support.apple.com/kb/dl999?locale=en_US)
+3. When you get to **Wireless Network Setup**, if can't connect to [http://wpilibpi.local](http://wpilibpi.local) but can to IP address directly, your computer is struggling to resolve the hostname from mDNS. Try downloading and installing [Bonjour](https://support.apple.com/kb/dl999?locale=en_US)
 4. Setup Pi Network settings
     1. Set Pi in update mode by clicking on the "Writable" on top of the web page.
     2. Navigate to "Network Settings" in the left navigation panel.
