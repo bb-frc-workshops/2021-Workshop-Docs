@@ -2,12 +2,18 @@
 Please follow these instructions to setup your Romi prior to attending the Workshop. This is meant to prepare you so that your Romi, Pi, and PC are fully configured so that you can fully communicate with your robot from VS Code.
 
 ## **Recommended Software**
-Here is a list of recommended software to install.
-1. [FRC 2021 VS Code](https://github.com/wpilibsuite/allwpilib/releases/tag/v2021.3.1) for robot code (instructions for installation can be found [here](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html))
-2. [Romi image](https://dev.azure.com/wpilib/RuntimeSupport/_build/results?buildId=17296&view=artifacts&pathAsName=false&type=publishedArtifacts) Download and extract it. You will use the file *WPILibPi_image-v2021.3.1-3-g7bd028a_2021-10-01-Romi.zip*.
-2. [Etcher](https://www.balena.io/etcher/) if you need to image your Pi, use image above and instructions for installing [here](https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/installing-the-image-to-your-microsd-card.html)
-3. [Angry IP Scanner](https://angryip.org/) for identifying IP address of Romi
-4. Optional - [Bonjour](https://support.apple.com/kb/dl999?locale=en_US) for resolving Romi hostname of wpilibpi
+Here is a list of recommended software. Click on each link to navigate to tne download locations.
+1. [FRC 2021 VS Code](https://github.com/wpilibsuite/allwpilib/releases/tag/v2021.3.1) (about 3 GB) for robot code (instructions for installation can be found [here](https://docs.wpilib.org/en/stable/docs/zero-to-robot/step-2/wpilib-setup.html)). Downloads are at the bottom of web page.
+
+ ![image](./VSCodeDownload.png)
+
+2. [Romi image](https://dev.azure.com/wpilib/RuntimeSupport/_build/results?buildId=17296&view=artifacts&pathAsName=false&type=publishedArtifacts) (about 10 GB) Download and extract it. You will use the file *WPILibPi_image-v2021.3.1-3-g7bd028a_2021-10-01-Romi.zip*.
+
+ ![image](./RomiImageDownload.png)
+
+2. [Etcher](https://www.balena.io/etcher/) (about 0.3 GB) if you need to image your Pi, use image above and instructions for installing [here](https://docs.wpilib.org/en/stable/docs/software/vision-processing/wpilibpi/installing-the-image-to-your-microsd-card.html)
+3. Optional - [Angry IP Scanner](https://angryip.org/) (about 0.002 GB) for identifying IP address of Romi when in bridge mode
+4. Optional - [Bonjour](https://support.apple.com/kb/dl999?locale=en_US) (about 0.004 GB) for resolving Romi hostname of wpilibpi
 
 
 ## **Pre-requisite - Fully Charged Batteries!** 
@@ -32,7 +38,7 @@ The Romi robot drains batteries incredibly fast. Please ensure you have fully ch
 5. Wait 15 seconds (web page should grey)
 6. Restart PI
 7. Connect your computer to the local network if you have not done so already.
-8. Open Angry IP Scanner
+8. Open Angry IP Scanner (only needed if [http://wpilibpi.local](http://wpilibpi.local) doesn't resolve)
     1. Range should default to local network. Click Start.
 	2. Once scan is complete, search for "wpilibpi.xxxx" in hostname. It can take a minute or 2 for the Pi to fully boot, so if it doesn't show initially, try rescanning.
 	3. Note IP address
@@ -41,7 +47,7 @@ The Romi robot drains batteries incredibly fast. Please ensure you have fully ch
 
 ## **Step 2: Troubleshooting**
 **If wpilibpi.local does not show up on Angry IP Scanner:**
-1. Open SD card on computer
+1. Open SD card on computer (if you get a popup asking to format ignore. It's due to the limitations of Windows reading file system types. You will still be able to open and view the files in /boot via Windows Explorer).
 2. Edit *wpa_supplicant_wpilibpi.conf*. Correct network name in the field ssid (in this example *My Home Network Name*), and password (in this example *NetworkPassword*) in field psk. The text should look like this:
     
 ```
@@ -70,7 +76,7 @@ sim {
 }
 ```
 
-3. Or, if able to resolve [http://wpilibpi](http://wpilibpi), replace code for websocket to be:
+3. Or, if able to resolve [http://wpilibpi.local](http://wpilibpi.local), replace code for websocket to be:
 
 ```
 def ROMI_IP 
