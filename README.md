@@ -53,7 +53,4 @@ We recommend the following items if you need a place to start. This will give yo
 The Step-down voltage regulator should be soldered and connected as described [here TODO: Embelish here](https://github.com/bb-frc-workshops/romi-examples/blob/main/simpleArm/README.md#setting-up-the-voltage-regulator-input)
 
 ## Office Hours
-We will have office hours where you can come and ask questions between 4:00 - 6:00 p.m. EST, Nov. 8th-11th and Nov. 15th-18th. Please join using this [TODO: Zoom link]()
-
-## Mini-competition Weekend
-To have some additional fun, we will hold our own competion before the Dec. 4th New England challenge. This will be held Nov. 20th from 10:00 a.m. - 2:00 p.m EST.
+We will have office hours where you can virtually ask questions. We will work with teams to coordinate the best times, and we are currently predicting we can do 2 times a week for 1-1.5 hours between now and the competition date (Dec. 4th). [TBD: Zoom link]()
