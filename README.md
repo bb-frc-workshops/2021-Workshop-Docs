@@ -57,10 +57,10 @@ We will have office hours every Monday and Wednesday from 4:00-5:30 p.m. EST unt
 
 ### Zoom info
 #### Online <br/>
-Link: [Zoom link](https://bloomberg.zoom.us/j/95851994120?pwd=QXVWNURBeTNWL3RRdUI3Z3NpdkgzQT09#success)
+Link: [Zoom link](https://bloomberg.zoom.us/j/91481197998?pwd=bERFa2FveE5RaTA2aXBCYlc4NUo1Zz09)
 
-Meeting ID: 958 5199 4120<br/>
-Passcode: 659509<br/>
+Meeting ID: 914 8119 7998<br/>
+Passcode: 599530<br/>
 
 #### Audio only details: <br/>
 +1-646-876-9923<br/>
